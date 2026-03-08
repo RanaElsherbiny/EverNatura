@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>EverNatura — Nature’s Luxury, Bottled</title>
+    <meta name="description" content="EverNatura premium skincare — Serum, Moisturizer, Toner, and Gentle Cleanser powered by natural ingredients." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <!-- Header-section -->
+    <header class="header">
+      <div class="container nav">
+        <a href="#home" class="brand" aria-label="EverNatura Home">
+          <span class="brand-logo" aria-hidden="true"></span>
+          <span class="brand-name">EverNatura</span>
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="menu-toggle"
+                aria-expanded="false"
+                aria-controls="primary-menu"
+                aria-label="Toggle menu">☰</button>
+
+        <!-- Primary menu -->
+        <nav class="menu" id="primary-menu" aria-label="Primary">
+          <a href="#products">Products</a>
+          <a href="#ingredients">Ingredients</a>
+          <a href="#campaigns">Campaigns</a>
+          <a href="#rituals">Rituals</a>
+          <a href="#shop">Shop</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <button class="cta" onclick="scrollToId('shop')">Shop now</button>
+          <button class="cart-icon" onclick="toggleCart()" aria-label="View cart">
+            Cart
+            <span id="cartCount" class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero container" id="home">
+      <h1>Nature’s luxury, bottled.</h1>
+      <p>Ingredient-driven skincare with hibiscus, pomegranate, goji, rose, and strawberry extracts — designed for glow, balance, and deep nourishment in a unified red-gold identity.</p>
+      <div class="hero-actions">
+        <button class="btn primary" onclick="scrollToId('products')">Explore the collection</button>
+        <button class="btn ghost" onclick="scrollToId('ingredients')">See our ingredients</button>
+      </div>
+    </section>
+
+    <!-- Products -->
+  <section id="products">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Products</h2>
+        <p>Four essentials to complete your ritual — serum, moisturizer, toner, and gentle cleanser.</p>
+      </div>
+      <button class="btn ghost" onclick="scrollToId('shop')">View bundles</button>
+    </div>
+
+    <div class="products-grid">
+      <!-- Gentle Cleanser -->
+      <article class="card" aria-labelledby="cleanser-title">
+        <div class="card-media cleanser-bg" role="img" aria-label="EverNatura Gentle Cleanser — strawberry-infused">
+          <img src="images/cleanser-banner.png" alt="Gentle Cleanser banner" />
+        </div>
+
+        <div class="card-body">
+          <h3 id="cleanser-title" class="card-title">Gentle Cleanser</h3>
+          <p class="card-text">Strawberry-infused cleanse that respects skin barrier and removes daily buildup.</p>
+          <span class="pill">Texture: Soft foam</span>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="openModal('Gentle Cleanser', 'Gentle Cleanser', 'images/cleanser.png', 'Strawberry-enriched, barrier-friendly cleanser for everyday use.', 99)">Quick view</button>
+            <button class="btn small ghost" onclick="addToCart({id:'cleanser', name:'Gentle Cleanser', price:99, img:'images/cleanser.png'})">Add to cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Toner -->
+      <article class="card" aria-labelledby="toner-title">
+        <div class="card-media toner-bg" role="img" aria-label="EverNatura Toner — rose and beetroot">
+          <img src="images/toner-banner.png" alt="Toner banner" />
+        </div>
+
+        <div class="card-body">
+          <h3 id="toner-title" class="card-title">Toner</h3>
+          <p class="card-text">Rose and beetroot balance to refine pores and prep skin for treatments.</p>
+          <span class="pill">Benefits: Balance</span>
+          <span class="pill">Texture: Refreshing</span>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="openModal('toner', 'Toner', 'images/toner.png', 'Toner for refined, radiant skin.', 99)">Quick view</button>
+            <button class="btn small ghost" onclick="addToCart({id:'toner', name:'Toner', price:99, img:'images/toner.png'})">Add to cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Serum -->
+      <article class="card" aria-labelledby="serum-title">
+        <div class="card-media serum-bg" role="img" aria-label="EverNatura Serum — hibiscus and pomegranate">
+          <img src="images/serum-banner.png" alt="Serum banner" />
+        </div>
+
+        <div class="card-body">
+          <h3 id="serum-title" class="card-title">Serum</h3>
+          <p class="card-text">Concentrated glow with hibiscus and pomegranate to energize and refine.</p>
+          <span class="pill">Benefits: Radiance</span>
+          <span class="pill">Texture: Lightweight</span>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="openModal('Serum', 'Serum', 'images/serum.png', 'Hibiscus + pomegranate actives for visible glow and smooth texture.', 99)">Quick view</button>
+            <button class="btn small ghost" onclick="addToCart({id: 'serum', name:'Serum', price:99, img:'images/serum.png'})">Add to cart</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Moisturizer -->
+      <article class="card" aria-labelledby="moisturizer-title">
+        <div class="card-media moisturizer-bg" role="img" aria-label="EverNatura Moisturizer — goji and pomegranate">
+          <img src="images/moisturizer-banner.png" alt="Moisturizer banner" />
+        </div>
+
+        <div class="card-body">
+          <h3 id="moisturizer-title" class="card-title">Moisturizer</h3>
+          <p class="card-text">Deep nourishment with goji and pomegranate for supple, long-lasting comfort.</p>
+          <span class="pill">Benefits: Hydration</span>
+          <span class="pill">Texture: Rich cream</span>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="openModal('Moisturizer', 'Moisturizer', 'images/moisturizer-banner.png', 'Goji + pomegranate replenishing cream for lasting moisture.', 100)">Quick view</button>
+            <button class="btn small ghost" onclick="addToCart({id:'moisturizer', name:'Moisturizer', price:100, img:'images/moisturizer-banner.png'})">Add to cart</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+    <!-- Ingredients -->
+    <section id="ingredients">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ingredients</h2>
+            <p>Each extract is selected for potency and harmony with the skin.</p>
+          </div>
+          <button class="btn ghost" onclick="scrollToId('shop')">Explore bundles</button>
+        </div>
+
+        <div class="ingredients-grid">
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Strawberry-Extract.png')"></div>
+            <div>
+              <h4>Strawberry</h4>
+              <p>Gentle cleanse with a barrier-friendly, refreshing feel.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Hibiscus-Extract.png')"></div>
+            <div>
+              <h4>Hibiscus</h4>
+              <p>Known to brighten and gently resurface for a fresh, even look.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Red-Clay.png')"></div>
+            <div>
+              <h4>Red Clay</h4>
+              <p>Purifies and refines for a smoother, more balanced complexion.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Pomegranate.png')"></div>
+            <div>
+              <h4>Pomegranate</h4>
+              <p>Antioxidant-rich vitality to help protect and energize skin.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Beetroot.png')"></div>
+            <div>
+              <h4>Beetroot</h4>
+              <p>Naturally boosts radiance and supports a healthy, glowing tone.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Mint.png')"></div>
+            <div>
+              <h4>Mint</h4>
+              <p>Invigorating freshness to awaken and cool the skin.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Dragon.png')"></div>
+            <div>
+              <h4>Dragon Fruit</h4>
+              <p>Brightening hydration that leaves skin soft, dewy, and refreshed.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Rose-Water.png')"></div>
+            <div>
+              <h4>Rosehip Oil</h4>
+              <p>Rich in essential fatty acids to smooth, renew, and improve texture.</p>
+            </div>
+          </div>
+
+          <div class="ing">
+            <div class="ing-thumb" style="background-image:url('images/Oil.png')"></div>
+            <div>
+              <h4>Essential Oils</h4>
+              <p>Aromatherapeutic touch to balance, comfort, and enhance your skincare ritual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaigns / Lookbook -->
+    <section id="campaigns">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Campaigns</h2>
+            <p>Ingredient-inspired visuals and real routines in action.</p>
+          </div>
+          <button class="btn ghost" onclick="scrollToId('products')">Back to products</button>
+        </div>
+
+        <div class="campaigns">
+          <article class="campaign">
+            <div class="campaign-media" style="background-image:url('images/Red-Radiance.png')" role="img" aria-label="Model applying EverNatura Serum"></div>
+            <div class="campaign-body">
+              <h3 class="campaign-title">Red Radiance</h3>
+              <p class="campaign-text">A dewy glow sequence featuring hibiscus and pomegranate accents.</p>
+            </div>
+          </article>
+
+          <article class="campaign">
+            <div class="campaign-media" style="background-image:url('images/Ritual-Set.png')" role="img" aria-label="Flatlay of all EverNatura products"></div>
+            <div class="campaign-body">
+              <h3 class="campaign-title">The Ritual Set</h3>
+              <p class="campaign-text">Serum, Toner, Moisturizer, and Gentle Cleanser — a complete daily ritual.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skincare Rituals -->
+    <section id="rituals">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Skincare rituals</h2>
+            <p>Clear, simple steps that keep the brand’s red-gold identity front and center.</p>
+          </div>
+          <button class="btn ghost" onclick="scrollToId('shop')">Shop the ritual</button>
+        </div>
+
+        <div class="rituals">
+          <div class="ritual">
+            <h4>Morning Glow</h4>
+            <ol>
+              <li>Gentle Cleanser</li>
+              <li>Toner</li>
+              <li>Serum</li>
+              <li>Moisturizer</li>
+            </ol>
+            <small>Designed for daily radiance and balanced hydration.</small>
+          </div>
+          <div class="ritual">
+            <h4>Night Repair</h4>
+            <ol>
+              <li>Gentle Cleanser</li>
+              <li>Toner</li>
+              <li>Serum</li>
+              <li>Moisturizer</li>
+            </ol>
+            <small>Restore comfort and support overnight renewal.</small>
+          </div>
+          <div class="ritual">
+            <h4>Red Radiance Ritual</h4>
+            <ol>
+              <li>Gentle Cleanser</li>
+              <li>Toner</li>
+              <li>Serum</li>
+              <li>Moisturizer</li>
+            </ol>
+            <small>Ingredient-focused glow featuring hibiscus and pomegranate.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop -->
+   <section id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Shop</h2>
+        <p>Bundles and single products, crafted for a cohesive routine.</p>
+      </div>
+      <button class="btn ghost" onclick="scrollToId('contact')">Wholesale</button>
+    </div>
+
+    <div class="products-grid">
+      <!-- Gentle Cleanser -->
+      <article class="card">
+        <div class="card-media">
+          <img src="images/cleanser.png" alt="Gentle Cleanser" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Gentle Cleanser</h3>
+          <p class="card-text">Gentle Cleanser — your daily duo for energized skin.</p>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="addToCart({id:'cleanser', name:'Gentle Cleanser', price:99, img:'images/cleanser.png'})">Add to cart</button>
+            <button class="btn small ghost" onclick="openModal('Gentle Cleanser', 'Gentle Cleanser', 'images/cleanser.png', 'Gentle Cleanser for refined, radiant skin.', 99)">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Toner -->
+      <article class="card">
+        <div class="card-media">
+          <img src="images/toner.png" alt="Toner" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Toner</h3>
+          <p class="card-text">Toner — your refreshing prep for clear, even skin.</p>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="addToCart({id:'toner', name:'Toner', price:99, img:'images/toner.png'})">Add to cart</button>
+            <button class="btn small ghost" onclick="openModal('Toner', 'Toner', 'images/toner.png', 'Toner for refined, radiant skin.', 99)">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Serum -->
+      <article class="card">
+        <div class="card-media">
+          <img src="images/serum.png" alt="Serum" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Serum</h3>
+          <p class="card-text">Serum — your glow boost for luminous, healthy skin.</p>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="addToCart({id:'serum', name:'Serum', price:99, img:'images/serum.png'})">Add to cart</button>
+            <button class="btn small ghost" onclick="openModal('Serum', 'Serum', 'images/serum.png', 'Serum for refined, radiant skin.', 99)">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Moisturizer -->
+      <article class="card">
+        <div class="card-media">
+          <img src="images/moisturizer.png" alt="Moisturizer" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Moisturizer</h3>
+          <p class="card-text">Moisturizer — your daily drink for soft, supple skin.</p>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="addToCart({id:'moisturizer', name:'Moisturizer', price:99, img:'images/moisturizer.png'})">Add to cart</button>
+            <button class="btn small ghost" onclick="openModal('Moisturizer', 'Moisturizer', 'images/moisturizer.png', 'Moisturizer for refined, radiant skin.', 99)">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Glow Set -->
+      <article class="card">
+        <div class="card-media">
+          <img src="images/evernatura-set.png" alt="Glow Set" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Glow Set</h3>
+          <p class="card-text">The Complete Set — your all-in-one ritual for balanced, radiant skin.</p>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="addToCart({id:'glow-set', name:'Glow Set', price:350, img:'images/evernatura-set.png'})">Add to cart</button>
+            <button class="btn small ghost" onclick="openModal('Glow Set', 'Glow Set', 'images/evernatura-set.png', 'The Glow Set for refined, radiant skin.', 350)">Details</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gift Set -->
+      <article class="card">
+        <div class="card-media">
+          <img src="images/evernatura-package.png" alt="Gift Set" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Gift Set</h3>
+          <p class="card-text">Gift Set — your thoughtful treat for glowing moments of care.</p>
+          <div class="card-actions">
+            <button class="btn small primary" onclick="addToCart({id:'gift-set', name:'Gift Set', price:375, img:'images/evernatura-package.png'})">Add to cart</button>
+            <button class="btn small ghost" onclick="openModal('Gift Set', 'Gift Set', 'images/evernatura-package.png', 'The Gift Set for refined, radiant skin.', 375)">Details</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2>About EverNatura</h2>
+        <p>EverNatura is a premium skincare brand founded on ingredient integrity and visual harmony. We translate natural stories — hibiscus, pomegranate, goji, rose, strawberry — into refined formulas and a cohesive red-gold presentation.</p>
+      </div>
+    </section>
+
+    <!-- Contact / Support -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>Questions, wholesale, or press — we’re here to help.</p>
+          </div>
+          <span class="muted">New York, USA</span>
+        </div>
+
+        <form onsubmit="submitContact(event)" aria-label="Contact form" class="contact-form">
+      <div class="form-grid">
+        <input aria-label="Your name" id="name" type="text" placeholder="Your name" required />
+        <input aria-label="Email" id="email" type="email" placeholder="Email" required />
+        <input aria-label="Subject" id="subject" type="text" placeholder="Subject" />
+        <select aria-label="Inquiry type" id="type">
+          <option value="support">Support</option>
+          <option value="wholesale">Wholesale</option>
+          <option value="press">Press</option>
+        </select>
+        <textarea aria-label="Message" id="message" placeholder="Your message" rows="5"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Send message</button>
+      </div>
+    </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h5>EverNatura</h5>
+          <p class="muted">Premium, ingredient-driven skincare in a cohesive red-gold identity.</p>
+        </div>
+        <div>
+          <h5>Navigate</h5>
+          <a href="#products">Products</a>
+          <a href="#ingredients">Ingredients</a>
+          <a href="#campaigns">Campaigns</a>
+          <a href="#rituals">Rituals</a>
+        </div>
+        <div>
+          <h5>Support</h5>
+          <a href="#contact">Contact</a>
+          <a href="#">FAQ</a>
+          <a href="#">Shipping & Returns</a>
+        </div>
+        <div>
+          <h5>Social</h5>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+      <div class="container subfooter">
+        <span>© 2025 EverNatura</span>
+        <span>Developed by Rana</span>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="close-x" onclick="closeModal()" aria-label="Close">×</button>
+        <div class="modal-media" id="modal-media"></div>
+        <div class="modal-body">
+          <h3 class="modal-title" id="modal-title">Product</h3>
+          <p class="modal-text" id="modal-text">Details</p>
+          <div class="modal-actions">
+            <button class="btn primary" onclick="addToCart(modalProduct)">Add to cart</button>
+            <button class="btn ghost" onclick="closeModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">Added to cart</div>
+
+    <!-- Cart Drawer -->
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Shopping cart">
+      <div class="cart-head">
+        <strong style="font-family:'Playfair Display',serif;font-size:20px;">Your Cart</strong>
+        <button class="remove-btn" onclick="toggleCart()">Close</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-foot">
+        <div class="total-row">
+          <span>Total</span>
+          <span id="cartTotal">0</span>
+        </div>
+        <div class="cart-actions">
+          <button class="btn ghost block" onclick="clearCart()">Clear</button>
+          <button class="btn primary block" onclick="checkoutCart()">Checkout</button>
+        </div>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
