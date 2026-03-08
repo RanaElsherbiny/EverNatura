@@ -21,7 +21,7 @@ View the full website here:
 
 ## 🎨 Figma Design  
 View the original Figma UI design:  
-👉 [**EverNatura Figma Design**]([https://www.figma.com/proto/iN49ght8e25Fcm7dAiXxTL/EverNatura?node-id=201-2&t=pDUh6spITXjUkcc4-1](https://www.figma.com/design/iN49ght8e25Fcm7dAiXxTL/EverNatura?node-id=201-2&t=6fVvpHrs56fSi5pe-0))
+👉 [**EverNatura Figma Design**](https://www.figma.com/design/iN49ght8e25Fcm7dAiXxTL/EverNatura?node-id=201-2&t=6fVvpHrs56fSi5pe-0)
 
 <br>
 
