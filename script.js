@@ -19,13 +19,11 @@ const title = document.getElementById('modal-title');
 const text = document.getElementById('modal-text');
 let modalProduct = null;
 
-// ✅ Now includes product ID as first argument
 function openModal(id, name, img, desc, price) {
   title.textContent = name;
   text.textContent = `${desc} — USD ${price}`;
   media.style.backgroundImage = `url('${img}')`;
 
-  // ✅ Use the provided id consistently (not generated from name)
   const cleanId = String(id).toLowerCase().trim().replace(/[^a-z0-9-]+/g, '-');
 
   modalProduct = {
@@ -81,7 +79,6 @@ function formatUSD(n) {
   return `$${(Math.round(toNumber(n) * 100) / 100).toFixed(2)}`;
 }
 
-// ✅ Build key ONLY from id (always identical for same product)
 function buildKey(item) {
   return String(item.id).toLowerCase().trim();
 }
@@ -94,7 +91,6 @@ function cartTotal() {
 function addToCart(item) {
   if (!item || !item.id) return;
 
-  // Normalize ID to avoid any mismatch between modal and card buttons
   const normalizedId = String(item.id).toLowerCase().trim().replace(/[^a-z0-9-]+/g, '');
   const normalized = {
     id: normalizedId,
@@ -106,7 +102,6 @@ function addToCart(item) {
 
   const key = buildKey(normalized);
 
-  // ✅ Merge same id
   const existing = cart.find(p => p.key === key);
   if (existing) {
     existing.qty += 1;
