@@ -2,7 +2,7 @@
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  // Offset-aware scrolling (works better with sticky header)
+  // Offset-aware scrolling 
   const header = document.querySelector('.header');
   const headerH = header ? header.offsetHeight : 0;
   const rect = el.getBoundingClientRect();
@@ -91,7 +91,7 @@ function cartTotal() {
 function addToCart(item) {
   if (!item || !item.id) return;
 
-  const normalizedId = String(item.id).toLowerCase().trim().replace(/[^a-z0-9-]+/g, '');
+  const normalizedId = String(item.id).toLowerCase().trim().replace(/[^a-z0-9-]+/g, '-');
   const normalized = {
     id: normalizedId,
     name: item.name || 'Item',
@@ -197,14 +197,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.menu-toggle');
   const menuEl  = document.getElementById('primary-menu');
 
-  // Toggle the menu open/closed
+  // ===== Toggle the menu open/closed =====
   if (menuBtn && menuEl) {
     menuBtn.addEventListener('click', () => {
       const open = menuEl.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
     });
 
-    // Close the menu when clicking a link
+    //===== Close the menu when clicking a link =====
     menuEl.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         if (menuEl.classList.contains('open')) {
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // If cart opens, close the menu to avoid overlap
+  // ===== If cart opens, close the menu to avoid overlap =====
   const cartBtn = document.querySelector('.cart-icon');
   if (cartBtn && menuEl && menuBtn) {
     cartBtn.addEventListener('click', () => {
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close menu with Escape
+  // ===== Close menu with Escape =====
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menuEl?.classList.contains('open')) {
       menuEl.classList.remove('open');
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Contact form 
+// ===== Contact form  =====
 function submitContact(e) {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
